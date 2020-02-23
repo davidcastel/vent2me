@@ -1,7 +1,6 @@
 
 <template>
   <div class="welcome container">
-    
 <newpost />
   <div class="feed">
     <ul>
@@ -33,7 +32,7 @@ export default {
   data () {
     return {
       name: 'Anon 1',
-      feedback:null,
+      feedback: null,
       posts: []
     }
   },

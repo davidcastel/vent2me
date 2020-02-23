@@ -1,5 +1,5 @@
 <template>
-    <div class="chat container">
+    <div class="chat2 container">
         <div class="card left">
             <div class="card-content" id="open">
                 <ul class="collection">
@@ -59,7 +59,7 @@
 
         </div>
         <div class="right">
-    <msgbox class="right" />
+    <msgbox2 class="right" />
     </div>
 
 
@@ -76,7 +76,7 @@ import db from '@/firebase/init'
 import moment from 'moment'
 
 export default {
-    name: 'chat',
+    name: 'chat2',
     props: ['name'],
     components: {
         newmessage,
@@ -130,32 +130,32 @@ export default {
 #open{
     width: 375px;
 }
-.chat{
+.chat2{
     margin-top: 25px;
     margin-bottom: 700px;
 }
-.chat h2{
+.chat2 h2{
     font-size: 2.6em;
     
 }
-.chat span{
+.chat2 span{
     font-size: 1.4em;
 }
-.chat .time{
+.chat2 .time{
     display: block;
     font-size: 0.8em;
 }
-.messages{
+.messages2{
     max-height: 390px;
     overflow: auto;
 }
-.messages::-webkit-scrollbar{
+.messages2::-webkit-scrollbar{
     width: 3px;
 }
-.messages::-webkit-scrollbar-track{
+.messages2::-webkit-scrollbar-track{
     background: #ddd;
 }
-.messages::-webkit-scrollbar-thumb{
+.messages2::-webkit-scrollbar-thumb{
     background: #aaa;
 }
 .msg-box{
