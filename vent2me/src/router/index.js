@@ -19,22 +19,16 @@ export default new Router({
       component: welcome
     },
     {
-      path: '/create',
+      path: '/profile',
       name: 'create',
       component: create
     },
     {
-      path: '/chat',
+      path: '/chats',
       name: 'chat',
       component: chat,
       props: true,
-      beforeEnter: (to, from, next) => {
-        if(to.params.name){
-          next()
-        } else{
-          next({ name: 'welcome' })
-        }
-      }
+
     }
   ]
 })

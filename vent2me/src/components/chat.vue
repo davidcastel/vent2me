@@ -1,12 +1,75 @@
 <template>
     <div class="chat container">
-        <div class="card">
-            <div class="card-content">
+        <div class="card left">
+            <div class="card-content" id="open">
+                <ul class="collection">
+                    <li class="collection-item avatar">
+                    <img src="images/yuna.jpg" alt="" class="circle">
+                    <span class="title">Anonymous 1</span>
+                    <a href="#!" class="btn waves-effect waves-teal right"><i class="material-icons">chevron_right</i></a>
+                    <i class="material-icons blue circle">person</i>
+                    <p class="green-text">Online<br>
+                    </p>
+                    <a href="#!" class="secondary-content"></a>
+                    </li>
+                    <li class="collection-item avatar">
+                    <i class="material-icons circle">person</i>
+                    <span class="title">Anonymous 2</span>
+                    <p class="grey-text">Offline <br>
+                    </p>
+                    <a href="#!" class="secondary-content"></a>
+                    </li>
+                    <li class="collection-item avatar">
+                    <i class="material-icons circle green">person</i>
+                    <span class="title">Anonymous 3</span>
+                    <p class="orange-text">Away <br>
+                    </p>
+                    <a href="#!" class="secondary-content"></a>
+                    </li>
+                    <li class="collection-item avatar">
+                    <i class="material-icons circle red">person</i>
+                    <span class="title">Anonymous 4</span>
+                    <p class="grey-text">Offline <br>
+                        
+                    </p>
+                    <a href="#!" class="secondary-content"></a>
+                    </li>
+                    
+                    <li class="collection-item avatar">
+                    <i class="material-icons circle orange">person</i>
+                    <span class="title">Anonymous 5</span>
+                    <p class="grey-text">Offline <br>
+                        
+                    </p>
+                    <a href="#!" class="secondary-content"></a>
+                    </li>
+
+                    <li class="collection-item avatar">
+                    <i class="material-icons circle purple">person</i>
+                    <span class="title">Anonymous 6</span>
+                    <a href="#!" class="btn waves-effect waves-teal right"><i class="material-icons">chevron_right</i></a>
+                    <p class="green-text">Online
+                        <br>
+                        
+                    </p>
+                    <a href="#!" class="secondary-content"></a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+        
+
+        <div class="card right">
+            <div class="card-content" id="msg">
                 <ul class="messages" v-chat-scroll>
                     <li v-for="message in messages" :key="message.id">
-                        <span class="teal-text">{{ message.name }}</span>
-                        <span class="grey-text text-darken-3">{{ message.content }}</span>
-                        <span class="grey-text time">{{ message.timestamp }}</span>
+                        
+                            <span class="teal-text">{{ message.name }}</span>
+                        <div class="msg-box">
+                            <span class="grey-text text-darken-3">{{ message.content }}</span>
+                          </div>
+                            <span class="grey-text time">{{ message.timestamp }}</span>
                     </li>
                 </ul>
             </div>
@@ -53,9 +116,19 @@ export default {
 }
 </script>
 <style>
+#msg{
+    width: 600px;
+}
+#open{
+    width: 375px;
+}
+.chat{
+    margin-top: 25px;
+    margin-bottom: 700px;
+}
 .chat h2{
     font-size: 2.6em;
-    margin-bottom: 40px;
+    
 }
 .chat span{
     font-size: 1.4em;
@@ -65,7 +138,7 @@ export default {
     font-size: 0.8em;
 }
 .messages{
-    max-height: 500px;
+    max-height: 390px;
     overflow: auto;
 }
 .messages::-webkit-scrollbar{
@@ -76,5 +149,12 @@ export default {
 }
 .messages::-webkit-scrollbar-thumb{
     background: #aaa;
+}
+.msg-box{
+    width: 97%;
+    padding: 10px;
+    background: #eee;
+    font-size: 11px;
+    border-radius: 2px;
 }
 </style>

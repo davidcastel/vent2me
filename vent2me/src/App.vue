@@ -1,14 +1,14 @@
 <template>
   <div id="app">
-    <nav>
-    <div class="nav-wrapper">
+    <nav class="">
+    <div class="nav-wrapper blue lighten-2 ">
       <ul id="nav-mobile" class="left hide-on-med-and-down">
-        <li><a href="/">Talk</a></li>
-        <li><a href="/create">Create</a></li>
-        <li><a href="collapsible.html">Your Chats</a></li>
-      </ul>
+        <li><a href="/"><i class="Medium material-icons">find_in_page</i></a></li>
+        <li><a href="/chats"><i class="Medium material-icons">question_answer</i></a></li>
+        </ul>
     </div>
   </nav>
+
     <router-view/>
   </div>
 </template>

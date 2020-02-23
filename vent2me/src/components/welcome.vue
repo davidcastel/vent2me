@@ -1,88 +1,62 @@
 
 <template>
   <div class="welcome container">
-    <div class="card">
-      <div class="card-content center-align">
-        <form @submit.prevent="enterChat">
-          <span class="card-title">Create Post</span>
-          <input placeholder="Enter your name" type="text" class="name" v-model="name">
-          <p v-if="feedback" class="red-text">{{feedback}}</p>
-        </form>
-      </div>
-    </div>
-
+    
+<newpost />
   <div class="feed">
-    <ul style="position:relative;">
-      <li>
+    <ul>
+      <li v-for="posts in posts" :key="posts.id" >
         <div class="card">
           <div class="card-content">
-            <span class="card-title">Robin<a class=" green right btn" href="#"><i class="material-icons center">arrow_forward</i></a></span>
+            <span class="card-title">{{posts.content}}</span>
             <hr>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veritatis perferendis incidunt commodi laborum hic praesentium, ex rerum dolorem minus adipisci quaerat autem consequuntur aliquam maiores aperiam error est saepe neque!</p>
+            <a class=" green right btn" href="/chats"><i class="material-icons center">chat</i></a>
+            <label for="new-post">{{posts.timestamp}}</label>
           </div>
         </div>
       </li>
-        
-      <li>
-        <div class="card">
-          <div class="card-content">
-            <span class="card-title">Jeff<a class=" green right btn" href="#"><i class="material-icons center">arrow_forward</i></a></span>
-            <hr>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veritatis perferendis incidunt commodi laborum hic praesentium, ex rerum dolorem minus adipisci quaerat autem consequuntur aliquam maiores aperiam error est saepe neque!</p>
-          </div>
-        </div>
-      </li>
-
-       <li>
-        <div class="card">
-          <div class="card-content">
-            <span class="card-title">James<a class=" green right btn" href="#"><i class="material-icons center">arrow_forward</i></a></span>
-            <hr>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veritatis perferendis incidunt commodi laborum hic praesentium, ex rerum dolorem minus adipisci quaerat autem consequuntur aliquam maiores aperiam error est saepe neque!</p>
-          </div>
-        </div>
-      </li>
-
-      <li>
-        <div class="card">
-          <div class="card-content">
-            <span class="card-title">Poko<a class=" green right btn" href="#"><i class="material-icons center">arrow_forward</i></a></span>
-            <hr>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veritatis perferendis incidunt commodi laborum hic praesentium, ex rerum dolorem minus adipisci quaerat autem consequuntur aliquam maiores aperiam error est saepe neque!</p>
-          </div>
-        </div>
-      </li>
-
-      <li>
-        <div class="card">
-          <div class="card-content">
-            <span class="card-title">Kevin<a class=" green right btn" href="#"><i class="material-icons center">arrow_forward</i></a></span>
-            <hr>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veritatis perferendis incidunt commodi laborum hic praesentium, ex rerum dolorem minus adipisci quaerat autem consequuntur aliquam maiores aperiam error est saepe neque!</p>
-          </div>
-        </div>
-      </li>
-
       </ul>
     </div>
   </div>
 </template>
 
 <script>
+import newpost from '@/components/newpost'
+import db from '@/firebase/init'
+import moment from 'moment'
+
 export default {
   name: 'welcome',
+  components: {
+    newpost
+  },
   data () {
     return {
-      name: null,
-      feedback:null
+      name: 'Anon',
+      feedback:null,
+      posts: []
     }
+  },
+  created(){
+    let ref = db.collection('posts').orderBy('timestamp', 'desc')
+
+    ref.onSnapshot(snapshot => {
+      snapshot.docChanges().forEach(change =>{
+        if(change.type == 'added'){
+          let doc = change.doc
+          this.posts.push({
+            id: doc.id,
+            content: doc.data().content,
+            timestamp: moment(doc.data().timestamp).format('LLL')
+          })
+        }
+      })
+    })
   },
   methods: {
     enterChat(){
       if(this.name){
         this.$router.push({ name: 'chat', params: { name: this.name }})
-      }else{
-        this.feedback = "You must enter a name"
       }
     }
   }
@@ -93,20 +67,33 @@ export default {
 <style>
 .feed{
   max-width: 1000px;
-  max-height: 400px;
+  max-height: 500px;
 }
 .search{
   height: 50px;
 }
 .welcome{
-  margin-top: 50px;
+  padding: 5px;
+  margin-top: 20px;
   max-width: 800px;
-  height: auto;
+  max-height: 600px;
+  overflow-x: visible;
+  overflow-y: auto;
+  margin-bottom: 50px;
 }
 .welcome h2{
   font-size: 3em;
 }
 .welcome button{
   margin: 30px auto;
+}
+.welcome::-webkit-scrollbar{
+    width: 3px;
+}
+.welcome::-webkit-scrollbar-track{
+    background: #ddd;
+}
+.welcome::-webkit-scrollbar-thumb{
+    background: #aaa;
 }
 </style>
