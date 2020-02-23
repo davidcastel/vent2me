@@ -30,6 +30,7 @@ export default {
                    content: this.newPost,
                    timestamp: Date.now()
                })
+               this.newPost = null
            }else{
                this.feedback = "You must Enter Post."
            }

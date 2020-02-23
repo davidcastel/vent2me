@@ -24,7 +24,7 @@ export default {
             if(this.newMessage){
                 db.collection('messages').add({
                     content: this.newMessage,
-                    name: 'Anon',
+                    name: 'You',
                     timestamp: Date.now()
                 }).catch(err =>{
                     console.log(err)

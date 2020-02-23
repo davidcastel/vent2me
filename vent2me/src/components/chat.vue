@@ -77,6 +77,7 @@
                 <newmessage :name="name" />
             </div>
         </div>
+        
     </div>
 </template>
 

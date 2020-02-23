@@ -32,7 +32,7 @@ export default {
   },
   data () {
     return {
-      name: 'Anon',
+      name: 'Anon 1',
       feedback:null,
       posts: []
     }
