@@ -3,8 +3,8 @@
     <nav>
     <div class="nav-wrapper">
       <ul id="nav-mobile" class="left hide-on-med-and-down">
-        <li><a href="sass.html">Talk</a></li>
-        <li><a href="badges.html">Create</a></li>
+        <li><a href="/">Talk</a></li>
+        <li><a href="/create">Create</a></li>
         <li><a href="collapsible.html">Your Chats</a></li>
       </ul>
     </div>

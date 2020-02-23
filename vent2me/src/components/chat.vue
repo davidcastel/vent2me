@@ -65,7 +65,7 @@ export default {
     font-size: 0.8em;
 }
 .messages{
-    max-height: 300px;
+    max-height: 500px;
     overflow: auto;
 }
 .messages::-webkit-scrollbar{

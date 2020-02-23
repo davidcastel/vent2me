@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import welcome from '@/components/welcome'
 import chat from '@/components/chat'
+import create from '@/components/create'
 import infiniteScroll from 'vue-infinite-scroll'
 
 
@@ -16,6 +17,11 @@ export default new Router({
       path: '/',
       name: 'welcome',
       component: welcome
+    },
+    {
+      path: '/create',
+      name: 'create',
+      component: create
     },
     {
       path: '/chat',
