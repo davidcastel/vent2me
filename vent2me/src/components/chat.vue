@@ -1,6 +1,5 @@
 <template>
     <div class="chat container">
-        <h2 class="center teal-text">Vent</h2>
         <div class="card">
             <div class="card-content">
                 <ul class="messages" v-chat-scroll>

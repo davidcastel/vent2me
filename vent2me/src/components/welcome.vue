@@ -1,15 +1,64 @@
+
 <template>
   <div class="welcome container">
     <div class="card">
       <div class="card-content center-align">
-        <h2 class="teal-text">Welcome</h2>
         <form @submit.prevent="enterChat">
-          <label for="name">Enter your name:</label>
-          <input type="text" class="name" v-model="name">
+          <input placeholder="Enter your name" type="text" class="name" v-model="name">
           <p v-if="feedback" class="red-text">{{feedback}}</p>
-          <button class="btn teal">Enter Chat</button>
         </form>
       </div>
+    </div>
+
+  <div class="feed">
+    <ul style="position:relative;">
+      <li>
+        <div class="card">
+          <div class="card-content">
+            <span class="card-title">Robin<a class=" green right btn" href="#">Chat</a></span>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veritatis perferendis incidunt commodi laborum hic praesentium, ex rerum dolorem minus adipisci quaerat autem consequuntur aliquam maiores aperiam error est saepe neque!</p>
+          </div>
+        </div>
+      </li>
+        
+      <li>
+        <div class="card">
+          <div class="card-content">
+            <span class="card-title">Jeff<a class=" green right btn" href="#">Chat</a></span>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veritatis perferendis incidunt commodi laborum hic praesentium, ex rerum dolorem minus adipisci quaerat autem consequuntur aliquam maiores aperiam error est saepe neque!</p>
+          </div>
+        </div>
+      </li>
+
+       <li>
+        <div class="card">
+          <div class="card-content">
+            <span class="card-title">James<a class=" green right btn" href="#">Chat</a></span>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veritatis perferendis incidunt commodi laborum hic praesentium, ex rerum dolorem minus adipisci quaerat autem consequuntur aliquam maiores aperiam error est saepe neque!</p>
+          </div>
+        </div>
+      </li>
+
+      <li>
+        <div class="card">
+          <div class="card-content">
+            <span class="card-title">Poko<a class=" green right btn" href="#">Chat</a></span>
+            
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veritatis perferendis incidunt commodi laborum hic praesentium, ex rerum dolorem minus adipisci quaerat autem consequuntur aliquam maiores aperiam error est saepe neque!</p>
+          </div>
+        </div>
+      </li>
+
+      <li>
+        <div class="card">
+          <div class="card-content">
+            <span class="card-title">Kevin<a class=" green right btn" href="#">Chat</a></span>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veritatis perferendis incidunt commodi laborum hic praesentium, ex rerum dolorem minus adipisci quaerat autem consequuntur aliquam maiores aperiam error est saepe neque!</p>
+          </div>
+        </div>
+      </li>
+
+      </ul>
     </div>
   </div>
 </template>
@@ -37,10 +86,17 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
+.feed{
+  max-width: 1000px;
+  max-height: 400px;
+}
+.search{
+  height: 50px;
+}
 .welcome{
-  max-width: 400px;
-  margin-top: 100px;
-
+  margin-top: 50px;
+  max-width: 800px;
+  height: auto;
 }
 .welcome h2{
   font-size: 3em;

@@ -2,6 +2,10 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import welcome from '@/components/welcome'
 import chat from '@/components/chat'
+import infiniteScroll from 'vue-infinite-scroll'
+
+
+Vue.use(infiniteScroll)
 
 Vue.use(Router)
 
